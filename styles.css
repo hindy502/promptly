@@ -1,0 +1,119 @@
+body, html {
+    margin: 0; 
+    padding: 0; 
+    font-family: sans-serif;
+    height: 100%;
+    background: #f0f0f0;
+}
+
+.setup-panel {
+    padding: 20px;
+    background: #fff;
+}
+
+.teleprompter-container {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background: black;
+    color: white;
+    overflow: hidden;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+    cursor: none;
+}
+
+.teleprompter-text {
+    max-width: 80%;
+    font-size: 2em;
+    line-height: 1.5em;
+    text-align: center;
+    transform: translateY(0); /* Start at top */
+    white-space: pre-wrap;
+    transition: color 0.3s;
+}
+
+/* Bottom menu */
+.bottom-menu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 10px 20px;
+}
+
+.teleprompter-container:hover .bottom-menu {
+    opacity: 1;
+    cursor: default;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-controls button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.middle-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-choices {
+    display: flex;
+    gap: 5px;
+}
+
+.color-choice {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #444;
+}
+
+input[type="range"] {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.landscape {
+    transform: rotate(90deg);
+    transform-origin: center center;
+    width: 100vh;
+    height: 100vw;
+    overflow: hidden;
+}
