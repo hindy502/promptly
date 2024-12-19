@@ -122,5 +122,5 @@ teleprompterContainer.addEventListener('click', () => {
     bottomMenu.classList.add('visible');
     setTimeout(() => {
         bottomMenu.classList.remove('visible');
-    }, 5000); // Auto-hide after 5 seconds
+    }, 7500); // Auto-hide after 7.5 seconds
 });

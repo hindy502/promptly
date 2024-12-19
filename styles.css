@@ -39,7 +39,7 @@ body, html {
 /* Bottom menu */
 .bottom-menu {
     position: absolute;
-    bottom: 5vh; /* Add padding above the bottom edge */
+    bottom: 7.5vh; /* Add padding above the bottom edge */
     width: 100%;
     background: rgba(0,0,0,0.5);
     color: white;
