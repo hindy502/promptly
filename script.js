@@ -116,42 +116,11 @@ function stopScrolling() {
     }
 }
 
-// Handle user scroll (desktop and touch)
-teleprompterText.addEventListener('wheel', event => handleScroll(event.deltaY));
-teleprompterText.addEventListener('touchstart', handleTouchStart);
-teleprompterText.addEventListener('touchmove', handleTouchMove);
-teleprompterText.addEventListener('touchend', handleScrollEnd);
-
-let touchStartY = 0; // Track starting touch position
-
-function handleScroll(delta) {
-    isUserScrolling = true;
-    const fontSize = parseFloat(window.getComputedStyle(teleprompterText).fontSize);
-    const scrollStep = delta / fontSize; // Dynamic scaling
-    currentPosition += scrollStep;
-    teleprompterText.style.transform = `translateY(${currentPosition}%)`;
-    debounceResumeScrolling();
-}
-
-function handleTouchStart(event) {
-    touchStartY = event.touches[0].clientY; // Record touch start position
-}
-
-function handleTouchMove(event) {
-    const touchCurrentY = event.touches[0].clientY;
-    const delta = touchStartY - touchCurrentY; // Calculate touch movement delta
-    handleScroll(delta);
-    touchStartY = touchCurrentY; // Update start position for continuous movement
-}
-
-function handleScrollEnd() {
-    debounceResumeScrolling();
-}
-
-// Resume scrolling after a delay
-function debounceResumeScrolling() {
-    if (scrollTimeout) clearTimeout(scrollTimeout); // Reset timeout
-    scrollTimeout = setTimeout(() => {
-        isUserScrolling = false;
-    }, 1000); // Resume after 1 second of no interaction
-}
+// Show menu on tap
+const bottomMenu = document.getElementById('bottomMenu');
+teleprompterContainer.addEventListener('click', () => {
+    bottomMenu.classList.add('visible');
+    setTimeout(() => {
+        bottomMenu.classList.remove('visible');
+    }, 5000); // Auto-hide after 5 seconds
+});

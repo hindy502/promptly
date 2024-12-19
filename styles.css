@@ -39,18 +39,17 @@ body, html {
 /* Bottom menu */
 .bottom-menu {
     position: absolute;
-    bottom: 0;
+    bottom: 5vh; /* Add padding above the bottom edge */
     width: 100%;
     background: rgba(0,0,0,0.5);
     color: white;
-    opacity: 0;
-    transition: opacity 0.3s;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
     padding: 10px 20px;
 }
 
-.teleprompter-container:hover .bottom-menu {
+.bottom-menu.visible {
     opacity: 1;
-    cursor: default;
 }
 
 .menu-items {
